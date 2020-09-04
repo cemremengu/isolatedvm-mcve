@@ -3,7 +3,7 @@ const execa = require('execa');
 
 const code = () => `(async () => {
   log('hello')
-  await cmd('test') 
+  const result = await cmd('test') 
   log('world')
 })()`;
 
@@ -13,10 +13,11 @@ const logCallback = function (...args) {
 
 const cmd = async function (...args) {
   try {
-    await execa.command(args.join(' '), {
+    const { stdout } = await execa.command(args.join(' '), {
       detached: false,
       windowsHide: true,
     });
+    return stdout;
   } catch (err) {
     console.log('expected error');
   }
