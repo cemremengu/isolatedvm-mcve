@@ -1,0 +1,16 @@
+# Set the default behavior, in case people don't have core.autocrlf set
+* text=auto
+
+# Require Unix line endings
+* text eol=lf
+
+*.java          text diff=java
+*.jar           binary
+*.class         binary
+*.xlsx          binary
+*.zip           binary
+*.png           binary
+*.gz            binary
+*.tar           binary
+*.tgz           binary
+*.jpg           binary
